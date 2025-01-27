@@ -7,6 +7,17 @@ interface DecodedToken extends JwtPayload {
   userId: string;
 }
 
+
+declare global {
+  namespace Express {
+    export interface Request {
+      user: {
+        id:string
+      }
+    }
+  }
+}
+
 const protectRoute = async (req: any, res: any, next: NextFunction) => {
   try {
     const token = req.cookies.jwt;
