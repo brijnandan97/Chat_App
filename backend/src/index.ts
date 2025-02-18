@@ -17,12 +17,15 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
 if (process.env.NODE_ENV !== "development") {
-  const frontendPath = path.join(__dirname, "..", "..", "frontend", "dist");
-  console.log("frontendpath is--->", frontendPath);
+  const frontendPath = path.join(__dirname, "frontend");
+
+  console.log("📂 Frontend Path:", frontendPath);
 
   app.use(express.static(frontendPath));
   app.get("*", (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
+    const indexPath = path.join(frontendPath, "index.html");
+    console.log("📝 Serving:", indexPath);
+    res.sendFile(indexPath);
   });
 }
 

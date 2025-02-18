@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node src/index.ts",
-    "build": "tsc && npm install && prisma generate --schema=./prisma/schema.prisma && cd ../frontend && npm install && npm run build && cd ../backend && mkdir -p dist/frontend && cp -r ../frontend/dist/* dist/frontend/",
+    "build": "tsc && npm install && prisma generate --schema=./prisma/schema.prisma && cd ../frontend && npm install && npm run build && ls -la dist && cd ../backend && mkdir -p dist/frontend && cp -r ../frontend/dist/* dist/frontend/ && ls -la dist/frontend",
     "start":"node dist/src/index.js"
   },
   "keywords": [],
